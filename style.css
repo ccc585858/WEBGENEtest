@@ -1,0 +1,1039 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.swiper-button-lock {
+  display: block;
+}
+
+.swiper-slide-active img {
+  border: 2px solid #f15928;
+}
+
+:root {
+  --swiper-theme-color: #f15928;
+}
+
+body {
+  background-image: url(./images/bg.jpg);
+  background-size: cover; /* 使背景圖片覆蓋整個 body */
+  background-repeat: no-repeat; /* 防止背景圖片重複 */
+}
+body .wrapper .cutpic {
+  display: flex;
+  justify-content: center;
+  padding-top: 150px;
+  margin-bottom: 100px;
+}
+body .wrapper .KV {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* 添加相對定位 */
+}
+body .wrapper .KV img {
+  margin-top: 15%;
+}
+body .wrapper .KV p {
+  margin-top: 15%;
+  text-align: center;
+  color: #999;
+}
+body .wrapper .KV .scrollLine {
+  background-color: #999;
+  display: inline-block;
+  width: 1px;
+  height: 10%;
+  position: absolute; /* 添加絕對定位 */
+  bottom: 5%; /* 貼齊底部 */
+  left: 50%; /* 將水平位置設置為中央 */
+  transform: translateX(-50%); /* 將元素水平居中對齊 */
+}
+body .wrapper .KV .button_container {
+  background-color: #0e0e0e;
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  height: 60px;
+  width: 60px;
+  cursor: pointer;
+  z-index: 100;
+  transition: opacity 0.25s ease;
+}
+body .wrapper .KV .button_container:hover {
+  opacity: 0.7;
+}
+body .wrapper .KV .button_container.active .top {
+  transform: translateY(10px) translateX(0) rotate(45deg);
+  background: #fff;
+}
+body .wrapper .KV .button_container.active .middle {
+  opacity: 0;
+  background: #fff;
+}
+body .wrapper .KV .button_container.active .bottom {
+  transform: translateY(-10px) translateX(0) rotate(-45deg);
+  background: #fff;
+}
+body .wrapper .KV .button_container span {
+  margin: 0 auto;
+  background: #fff;
+  border: none;
+  height: 5px;
+  width: 80%;
+  position: absolute;
+  top: 20px;
+  left: 5px;
+  transition: all 0.35s ease;
+  cursor: pointer;
+}
+body .wrapper .KV .button_container span:nth-of-type(2) {
+  top: 30px;
+}
+body .wrapper .KV .button_container span:nth-of-type(3) {
+  top: 40px;
+}
+body .wrapper .KV .overlay {
+  position: fixed;
+  background: black;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s, visibility 0.35s, height 0.35s;
+  overflow: hidden;
+}
+body .wrapper .KV .overlay.open {
+  opacity: 1;
+  visibility: visible;
+  height: 100%;
+}
+body .wrapper .KV .overlay.open li {
+  animation: fadeInRight 0.5s ease forwards;
+  animation-delay: 0.35s;
+}
+body .wrapper .KV .overlay.open li:nth-of-type(2) {
+  animation-delay: 0.4s;
+}
+body .wrapper .KV .overlay.open li:nth-of-type(3) {
+  animation-delay: 0.45s;
+}
+body .wrapper .KV .overlay.open li:nth-of-type(4) {
+  animation-delay: 0.5s;
+}
+body .wrapper .KV .overlay.open li:nth-of-type(5) {
+  animation-delay: 0.55s;
+}
+body .wrapper .KV .overlay .headerPic {
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+}
+body .wrapper .KV .overlay .headerPic img {
+  animation: picanimation 2.5s ease forwards;
+}
+body .wrapper .KV .overlay nav {
+  position: relative;
+  height: 45%;
+  top: 30%;
+  transform: translateY(-50%);
+  font-size: 50px;
+  font-family: "Varela Round", serif;
+  font-weight: 400;
+  text-align: center;
+}
+body .wrapper .KV .overlay ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 auto;
+  display: inline-block;
+  position: relative;
+  height: 100%;
+}
+body .wrapper .KV .overlay ul li {
+  display: block;
+  height: 15%;
+  min-height: 50px;
+  position: relative;
+  opacity: 0;
+}
+body .wrapper .KV .overlay ul li a {
+  display: block;
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+  overflow: hidden;
+  padding-bottom: 20px;
+}
+body .wrapper .KV .overlay ul li a.bgcolor {
+  color: #424242;
+}
+body .wrapper .KV .overlay ul li a.bgcolor::after {
+  width: 70%;
+}
+body .wrapper .KV .overlay ul li a:hover:after,
+body .wrapper .KV .overlay ul li a .overlay ul li a:focus:after,
+body .wrapper .KV .overlay ul li a .overlay ul li a:active:after {
+  width: 70%;
+}
+body .wrapper .KV .overlay ul li a:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0%;
+  transform: translateX(-50%);
+  height: 10px;
+  background: #f15928;
+  transition: 0.35s;
+}
+body .wrapper .KV .overlay ul li a.bgcolor {
+  color: #424242;
+}
+body .wrapper header {
+  background-color: rgba(41, 36, 33, 0.3);
+  display: flex;
+  justify-content: space-between;
+  max-width: 100%;
+  padding: 24px 250px;
+  position: sticky;
+  top: 0;
+  height: 80px;
+  z-index: 2;
+}
+body .wrapper header .navList {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  font-size: 18px;
+}
+body .wrapper header .navList li {
+  cursor: pointer;
+  transition: 0.5s;
+  position: relative;
+  width: 80px;
+  margin-right: 36px;
+  list-style-type: none;
+}
+body .wrapper header .navList li a {
+  text-decoration: none;
+  color: #fff;
+  padding-bottom: 10px;
+}
+body .wrapper header .navList li a:hover {
+  color: #999;
+}
+body .wrapper header .navList li a.active {
+  color: #424242; /* 變成灰色 */
+  position: relative;
+}
+body .wrapper header .navList li a.active:after {
+  content: ""; /* 添加底線 */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40%;
+  height: 2px;
+  background-color: #f15928; /* 橘色底線 */
+  transition: width 0.35s ease;
+}
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    left: 20%;
+  }
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+}
+@keyframes picanimation {
+  0% {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+body .wrapper .container {
+  margin: 0 auto;
+  max-width: 1440px;
+  padding: 0 20px;
+  height: 100%;
+}
+body .wrapper .container .twocut .leftContainer {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+body .wrapper .container .twocut .leftContainer .twoCutLeft {
+  width: 30%;
+}
+body .wrapper .container .twocut .leftContainer .twoCutLeft .leftNew {
+  display: flex;
+}
+body .wrapper .container .twocut .leftContainer .twoCutLeft .leftNew i {
+  font-size: 24px;
+  margin-right: 10px;
+}
+body .wrapper .container .twocut .leftContainer .twoCutLeft .leftNew h4 {
+  font-weight: 400;
+  font-size: 18px;
+}
+body .wrapper .container .twocut .leftContainer .twoCutLeft .leftText {
+  margin-top: 15px;
+  border-left: 3px solid #fff;
+  padding: 0 10px;
+}
+body .wrapper .container .twocut .leftContainer img {
+  width: 20%;
+  height: 20vh;
+  margin-left: 100px;
+}
+body .wrapper .container .twocut .rightContainer {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+body .wrapper .container .twocut .rightContainer .twoCutRight {
+  width: 30%;
+}
+body .wrapper .container .twocut .rightContainer .twoCutRight .rightNew {
+  display: flex;
+}
+body .wrapper .container .twocut .rightContainer .twoCutRight .rightNew i {
+  font-size: 24px;
+  margin-right: 10px;
+}
+body .wrapper .container .twocut .rightContainer .twoCutRight .rightNew h4 {
+  font-weight: 400;
+  font-size: 18px;
+}
+body .wrapper .container .twocut .rightContainer .twoCutRight .rightText {
+  margin-top: 15px;
+  border-left: 3px solid #fff;
+  padding: 0 10px;
+}
+body .wrapper .container .twocut .rightContainer img {
+  width: 20%;
+  height: 20vh;
+  margin-right: 100px;
+}
+body .wrapper .container .fourcut {
+  margin-bottom: 100px;
+}
+body .wrapper .container .fourcut .cards {
+  margin-top: 80px;
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+}
+body .wrapper .container .fourcut .cards .fourCutcard {
+  background-color: #232323;
+  height: 20vw;
+  width: 20%;
+  position: relative;
+}
+body .wrapper .container .fourcut .cards .fourCutcard:first-child {
+  top: 60px;
+}
+body .wrapper .container .fourcut .cards .fourCutcard:nth-child(2) {
+  top: 30px;
+}
+body .wrapper .container .fourcut .cards .fourCutcard:nth-child(3) {
+  top: 0;
+}
+body .wrapper .container .fourcut .cards .fourCutcard .topSection {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-left: -20px;
+  color: #fff;
+}
+body .wrapper .container .fourcut .cards .fourCutcard .topSection .line {
+  display: inline-block;
+  width: 30px;
+  height: 2px;
+  background-color: #999;
+  margin-right: 8px;
+}
+body .wrapper .container .fourcut .cards .fourCutcard .downSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+body .wrapper .container .fourcut .cards .fourCutcard .downSection .downSectionPic {
+  width: 100px;
+  height: 100px;
+  background-color: #f15928;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center; /* 水平置中 */
+  align-items: center; /* 垂直置中 */
+  margin: 30px 0;
+}
+body .wrapper .container .fourcut .cards .fourCutcard .downSection .downSectionPic i {
+  font-size: 50px;
+  color: #fff;
+}
+body .wrapper .container .fourcut .cards .fourCutcard .downSection p {
+  color: #fff;
+  padding: 0 20px;
+}
+body .wrapper .threecut {
+  background-size: cover;
+  margin-top: 50px;
+}
+body .wrapper .threecut .swiperbg {
+  background-color: #232323;
+  display: flex;
+  justify-content: center;
+}
+body .wrapper .threecut .swiperbg .slide-container {
+  margin: 0 40px;
+  max-width: 1400px;
+  width: 100%;
+  padding: 40px 0;
+}
+body .wrapper .threecut .swiperbg .slide-container .swiper-navBtn {
+  color: #f15928;
+  transition: color 0.3s ease;
+}
+body .wrapper .threecut .swiperbg .slide-container .swiper-navBtn:hover {
+  color: #de8c51;
+}
+body .wrapper .threecut .swiperbg .slide-container .swiper-navBtn::before, body .wrapper .threecut .swiperbg .slide-container .swiper-navBtn::after {
+  font-size: 40px;
+}
+body .wrapper .threecut .swiperbg .slide-container .swiper-button-next {
+  right: 0;
+}
+body .wrapper .threecut .swiperbg .slide-container .swiper-button-prev {
+  left: 0;
+}
+body .wrapper .threecut .swiperbg .slide-container .slide-content {
+  margin: 0 40px;
+  overflow: hidden;
+}
+body .wrapper .threecut .swiperbg .slide-container .slide-content .card-wrapper .card {
+  width: 320px;
+  border-radius: 25px;
+}
+body .wrapper .threecut .swiperbg .slide-container .slide-content .card-wrapper .card .image-content,
+body .wrapper .threecut .swiperbg .slide-container .slide-content .card-wrapper .card .card-content {
+  display: flex;
+  justify-content: space-between;
+}
+body .wrapper .threecut .swiperbg .slide-container .slide-content .card-wrapper .card .image-content .message,
+body .wrapper .threecut .swiperbg .slide-container .slide-content .card-wrapper .card .card-content .message {
+  display: flex;
+  align-items: center;
+}
+body .wrapper .threecut .swiperbg .slide-container .slide-content .card-wrapper .card .image-content .message .messageLine,
+body .wrapper .threecut .swiperbg .slide-container .slide-content .card-wrapper .card .card-content .message .messageLine {
+  width: 20px;
+  background-color: #fff;
+  height: 3px;
+  margin-right: 10px;
+}
+body .wrapper .threecut .swiperbg .slide-container .slide-content .card-wrapper .card .image-content {
+  row-gap: 5px;
+  position: relative;
+  padding: 25px 0;
+}
+body .wrapper .threecut .swiperbg .slide-container .slide-content .card-wrapper .card .image-content .card-image {
+  height: 100%;
+  width: 100%;
+  padding: 3px;
+}
+body .wrapper .threecut .swiperbg .slide-container .slide-content .card-wrapper .card .image-content .card-image .card-img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+body .wrapper .threecut .swiperbg .slide-container .slide-content .card-wrapper .card .card-content .name {
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+}
+body .wrapper .threecut .swiperbg .slide-container .slide-content .card-wrapper .card .card-content .description {
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+}
+body .wrapper .threecut .ListContainer {
+  padding: 20px;
+  margin: 0 auto;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+}
+body .wrapper .threecut .ListContainer .ListBox {
+  width: 50%;
+  margin-bottom: 50px;
+}
+body .wrapper .threecut .ListContainer .ListBox img {
+  width: 100%;
+}
+body .wrapper .threecut .ListContainer .ListBox .ListText {
+  margin-top: 10px;
+  display: flex;
+  color: #fff;
+  justify-content: space-between;
+}
+body .wrapper .threecut .ListContainer .ListBox .ListText .Listmessage {
+  display: flex;
+  align-items: center;
+}
+body .wrapper .threecut .ListContainer .ListBox .ListText .Listmessage .ListmessageLine {
+  display: inline-block;
+  width: 30px;
+  height: 2px;
+  background-color: #999;
+  margin-right: 8px;
+}
+body .wrapper .threecutBtn {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+  position: relative;
+}
+body .wrapper .threecutBtn::before {
+  content: "";
+  width: 15px;
+  height: 1px;
+  background-color: #999;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 63%;
+  right: 44%;
+}
+body .wrapper .threecutBtn::after {
+  content: "";
+  width: 50px;
+  height: 1px;
+  background-color: #999;
+  position: absolute;
+  top: 72%;
+  right: 44%;
+}
+body .wrapper .threecutBtn .button {
+  display: inline-block; /* 讓按鈕成為行內元素，以使它可以擁有寬度和高度 */
+  width: 10%;
+  background-color: transparent; /* 設定背景色為透明 */
+  margin-top: 40px;
+  border: none;
+  border-radius: 25px;
+  border: 1px solid #888;
+  cursor: pointer;
+}
+body .wrapper .threecutBtn .button p {
+  padding: 8px 40px;
+  text-align: center; /* 文字水平居中 */
+  color: #fff;
+  letter-spacing: 2px;
+}
+body .wrapper .contact {
+  display: flex;
+  padding-top: 165px;
+}
+body .wrapper .contact .left {
+  background-color: #fff;
+  width: 50%;
+}
+body .wrapper .contact .left .logoText {
+  padding: 20px;
+  margin: 8% 25% 0 25%;
+}
+body .wrapper .contact .left .logoText h1 {
+  font-size: 56px;
+  font-weight: bolder;
+}
+body .wrapper .contact .left .logoText h5 {
+  letter-spacing: 1px;
+  width: 70%;
+  padding-top: 5px;
+}
+body .wrapper .contact .left .phoneText {
+  display: flex;
+  flex-direction: column;
+  margin: 12% 25% 0 25%;
+  padding: 20px;
+}
+body .wrapper .contact .left .phoneText .phoneTop {
+  display: flex;
+  color: #f15928;
+  font-size: 25px;
+  letter-spacing: 4px;
+  gap: 10px;
+}
+body .wrapper .contact .left .phoneText h5 {
+  letter-spacing: 1px;
+  width: 70%;
+  padding-top: 10px;
+}
+body .wrapper .contact .left .ContactLine {
+  width: 55%;
+  height: 1px;
+  background-color: #acabab;
+  margin: 1% 0 0 26%;
+}
+body .wrapper .contact .left img {
+  margin: 3% 27%;
+}
+body .wrapper .contact .right {
+  width: 50%;
+  background-color: #424242;
+}
+body .wrapper .contact .right .form {
+  margin: 100px;
+}
+body .wrapper .contact .right .form form h1 {
+  font-size: 20px;
+  font-weight: 300;
+  text-align: center;
+  color: #f15928;
+}
+body .wrapper .contact .right .form form h5 {
+  text-align: center;
+  text-transform: uppercase;
+  color: #c6c6c6;
+}
+body .wrapper .contact .right .form .group {
+  position: relative;
+  margin: 45px 0;
+}
+body .wrapper .contact .right .form .group textarea {
+  resize: none;
+}
+body .wrapper .contact .right .form .group input,
+body .wrapper .contact .right .form .group textarea {
+  background: none;
+  color: #c6c6c6;
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  border: none;
+  width: 60%;
+  border-radius: 0;
+  border-bottom: 1px solid #c6c6c6;
+}
+body .wrapper .contact .right .form .group input:focus,
+body .wrapper .contact .right .form .group textarea:focus {
+  outline: none;
+  border-color: #f15928;
+}
+body .wrapper .contact .right .form .group input:focus ~ label, body .wrapper .contact .right .form .group input:valid ~ label,
+body .wrapper .contact .right .form .group textarea:focus ~ label,
+body .wrapper .contact .right .form .group textarea:valid ~ label {
+  top: -20px;
+  font-size: 12px;
+  color: #f15928;
+}
+body .wrapper .contact .right .form .group input:focus ~ .bar:before,
+body .wrapper .contact .right .form .group textarea:focus ~ .bar:before {
+  width: 100%;
+}
+body .wrapper .contact .right .form .group textarea {
+  border: 1px solid #c6c6c6;
+  margin-top: 10px;
+}
+body .wrapper .contact .right .form .group input[type=password] {
+  letter-spacing: 0.3em;
+}
+body .wrapper .contact .right .form .group label {
+  color: #c6c6c6;
+  font-size: 16px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: 300ms ease all;
+}
+body .wrapper .contact .right .form .group .bar {
+  position: relative;
+  display: block;
+  width: 60%;
+}
+body .wrapper .contact .right .form .group .bar:before {
+  content: "";
+  height: 2px;
+  width: 0;
+  bottom: 0px;
+  position: absolute;
+  background: #f15928;
+  transition: 300ms ease all;
+  left: 0%;
+}
+body .wrapper .contact .right .form button {
+  display: inline-block; /* 讓按鈕成為行內元素，以使它可以擁有寬度和高度 */
+  width: 20%;
+  background-color: #fff; /* 設定背景色為透明 */
+  margin-top: 10px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  color: #232323;
+  font-weight: bold;
+  padding: 10px 0;
+  position: relative;
+}
+body .wrapper .contact .right .form button::before {
+  content: "";
+  width: 15px;
+  height: 1px;
+  background-color: #999;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 23%;
+  right: -16%;
+}
+body .wrapper .contact .right .form button::after {
+  content: "";
+  width: 50px;
+  height: 1px;
+  background-color: #999;
+  position: absolute;
+  top: 42%;
+  right: -16%;
+}
+body .wrapper .Last h3 {
+  padding: 30px 0;
+  color: #fff;
+  text-align: center;
+}
+body .wrapper .Last #progress {
+  position: fixed;
+  bottom: 15px;
+  right: 25px;
+  width: 50px;
+  height: 50px;
+  display: none;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid #999;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 5;
+}
+body .wrapper .Last #progress #progress-value {
+  display: block;
+  height: calc(100% - 3px);
+  width: 100%;
+  background-color: transparent;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 25px;
+  text-align: center;
+  /* font-weight: bold; */
+  color: #999;
+}
+
+@media (max-width: 768px) {
+  body .wrapper .KV .button_container {
+    display: block;
+  }
+  body .wrapper .KV .overlay ul li {
+    margin-bottom: 30px;
+  }
+  body .wrapper header {
+    display: none;
+  }
+  body .wrapper .cutpic {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    margin-bottom: 50px;
+  }
+  body .wrapper header {
+    background-color: transparent;
+  }
+  body .wrapper header .headerpicture,
+  body .wrapper header .navList li {
+    display: none;
+  }
+  body .wrapper .container .twocut .leftContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  body .wrapper .container .twocut .leftContainer img {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+  body .wrapper .container .twocut .rightContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  body .wrapper .container .twocut .rightContainer img {
+    margin-right: 0;
+    order: 3;
+    margin-top: 20px;
+  }
+  body .wrapper .container .fourcut {
+    margin-bottom: 100px;
+  }
+  body .wrapper .container .fourcut .cards {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+  }
+  body .wrapper .container .fourcut .cards .fourCutcard {
+    background-color: #232323;
+    height: 50vw;
+    width: 80%;
+    position: relative;
+  }
+  body .wrapper .threecut .swiperbg {
+    background-color: transparent;
+  }
+  body .wrapper .threecut .swiperbg .swiper {
+    display: none;
+  }
+  body .wrapper .threecut .ListContainer {
+    padding: 20px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  body .wrapper .threecut .ListContainer .ListBox {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  body .wrapper .threecut .ListContainer .ListBox img {
+    width: 100%;
+  }
+  body .wrapper .threecut .ListContainer .ListBox .ListText {
+    margin-top: 10px;
+    display: flex;
+    color: #fff;
+    justify-content: space-between;
+  }
+  body .wrapper .threecut .ListContainer .ListBox .ListText .Listmessage {
+    display: flex;
+    align-items: center;
+  }
+  body .wrapper .threecut .ListContainer .ListBox .ListText .Listmessage .ListmessageLine {
+    display: inline-block;
+    width: 30px;
+    height: 2px;
+    background-color: #999;
+    margin-right: 8px;
+  }
+  body .wrapper .threecutBtn {
+    display: flex;
+    justify-content: center;
+    margin: 60px 0;
+  }
+  body .wrapper .threecutBtn::before {
+    content: "";
+    width: 15px;
+    height: 1px;
+    background-color: #999;
+    transform: rotate(45deg);
+    position: absolute;
+    top: 63%;
+    right: 33%;
+  }
+  body .wrapper .threecutBtn::after {
+    content: "";
+    width: 50px;
+    height: 1px;
+    background-color: #999;
+    position: absolute;
+    top: 72%;
+    right: 33%;
+  }
+  body .wrapper .threecutBtn .button {
+    display: inline-block; /* 讓按鈕成為行內元素，以使它可以擁有寬度和高度 */
+    width: 30%;
+    background-color: transparent; /* 設定背景色為透明 */
+    margin-top: 40px;
+    border: none;
+    border-radius: 25px;
+    border: 1px solid #888;
+    cursor: pointer;
+    background-color: #fff;
+  }
+  body .wrapper .threecutBtn .button p {
+    padding: 10px 20px;
+    text-align: center; /* 文字水平居中 */
+    color: #fff;
+    letter-spacing: 3px;
+    color: #000;
+    font-weight: bolder;
+  }
+  body .wrapper .contact {
+    flex-direction: column;
+    padding-top: 0;
+  }
+  body .wrapper .contact .left {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  body .wrapper .contact .left .ContactLine {
+    display: none;
+  }
+  body .wrapper .contact .left .logoText {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  body .wrapper .contact .left .logoText h5 {
+    text-align: center;
+  }
+  body .wrapper .contact .left .phoneText {
+    margin: 0;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  body .wrapper .contact .left .phoneText .phoneLine {
+    height: 1px;
+    width: 80%;
+    background-color: #999;
+    margin-top: 20px;
+  }
+  body .wrapper .contact .left .phoneText h5 {
+    text-align: center;
+  }
+  body .wrapper .contact .left img {
+    margin: 0;
+    margin-bottom: 30px;
+  }
+  body .wrapper .contact .right {
+    width: 100%;
+  }
+  body .wrapper .contact .right .form {
+    margin: 0;
+    padding: 30px;
+  }
+  body .wrapper .contact .right .form form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  body .wrapper .contact .right .form form .group {
+    width: 100%;
+  }
+  body .wrapper .contact .right .form form .group input,
+  body .wrapper .contact .right .form form .group textarea {
+    width: 100%;
+  }
+  body .wrapper .contact .right .form form .group .bar {
+    width: 100%;
+  }
+  body .wrapper .contact .right .form form button::before {
+    content: "";
+    width: 15px;
+    height: 1px;
+    background-color: #999;
+    transform: rotate(45deg);
+    position: absolute;
+    top: 36%;
+    right: -18%;
+  }
+  body .wrapper .contact .right .form form button::after {
+    content: "";
+    width: 50px;
+    height: 1px;
+    background-color: #999;
+    position: absolute;
+    top: 53%;
+    right: -17%;
+  }
+  body .wrapper .Last #progress {
+    bottom: 90px;
+  }
+}
+@media (max-width: 428px) {
+  body .wrapper .KV {
+    position: relative;
+  }
+  body .wrapper .KV .button_container {
+    position: absolute;
+    right: 20px;
+  }
+  body .wrapper .container .twocut .leftContainer {
+    width: 100%;
+  }
+  body .wrapper .container .twocut .leftContainer .twoCutLeft {
+    width: 100%;
+  }
+  body .wrapper .container .twocut .leftContainer img {
+    width: 100%;
+    margin-top: 50px;
+  }
+  body .wrapper .container .twocut .rightContainer {
+    width: 100%;
+  }
+  body .wrapper .container .twocut .rightContainer .twoCutRight {
+    width: 100%;
+  }
+  body .wrapper .container .twocut .rightContainer img {
+    width: 100%;
+    margin-top: 50px;
+  }
+  body .wrapper .container .fourcut .cards .fourCutcard {
+    width: 100%;
+    height: 40vh;
+  }
+  body .wrapper .threecutBtn:before {
+    top: 65%;
+    right: 28%;
+  }
+  body .wrapper .threecutBtn::after {
+    top: 72%;
+    right: 28%;
+  }
+  body .wrapper footer .contact .right .form form button {
+    width: 60%;
+  }
+  body .wrapper footer .contact .right .form form button:before {
+    top: 36%;
+    right: -10%;
+  }
+  body .wrapper footer .contact .right .form form button::after {
+    top: 52%;
+    right: -9%;
+  }
+  body .wrapper footer .Last #progress {
+    bottom: 125px;
+    right: 10px;
+  }
+  body .wrapper footer .Last h3 {
+    padding: 40px 20px;
+  }
+}/*# sourceMappingURL=style.css.map */

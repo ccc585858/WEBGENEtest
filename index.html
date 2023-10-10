@@ -3,7 +3,497 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>WEBGENE</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css"
+      integrity="sha512-oAvZuuYVzkcTc2dH5z1ZJup5OmSQ000qlfRvuoTTiyTBjwX1faoyearj8KdMq0LgsBTHMrRuMek7s+CxF8yE+w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
   </head>
-  <body></body>
+  <body>
+    <div class="wrapper">
+      <div class="KV">
+        <img src="./images/PetpaGo-whiteLogo.svg" alt="" />
+        <p>SCROLL</p>
+        <span class="scrollLine"></span>
+        <!-- hamburger -->
+        <div class="button_container" id="toggle">
+          <span class="top"></span><span class="middle"></span
+          ><span class="bottom"></span>
+        </div>
+        <div class="overlay" id="overlay">
+          <div class="headerPic">
+            <img src="./images/PetpaGo-whiteLogo.svg" alt="" />
+          </div>
+          <nav class="overlay-menu">
+            <ul>
+              <li><a href="#section1">service</a></li>
+              <li><a href="#section2">service</a></li>
+              <li><a href="#section3">service</a></li>
+              <li><a href="#section4">service</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <header>
+        <a href="index.html" class="headerpicture"
+          ><img src="./images/PetpaGo-whiteLogo.svg" alt=""
+        /></a>
+        <ul class="navList">
+          <li>
+            <a href="#section1" id="link-section1">service</a>
+          </li>
+          <li>
+            <a href="#section2" id="link-section2">service</a>
+          </li>
+          <li>
+            <a href="#section3" id="link-section3">service</a>
+          </li>
+          <li>
+            <a href="#section4" id="link-section4">service</a>
+          </li>
+        </ul>
+      </header>
+
+      <div class="container">
+        <div class="twocut" id="section1">
+          <div class="cutpic">
+            <img src="./images/PetpaGo-whiteLogo.svg" alt="" />
+          </div>
+          <div class="leftContainer">
+            <div class="twoCutLeft">
+              <div class="leftNew">
+                <i class="bi bi-1-circle"></i>
+                <h4>創意的策略</h4>
+              </div>
+              <div class="leftText">
+                <h6>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Eveniet sequi maiores vitae autem atque placeat praesentium,
+                  aliquid amet veniam, voluptatem architecto et libero laborum
+                  modi, unde laudantium porro ipsum esse.
+                </h6>
+              </div>
+            </div>
+            <img src="./images/1.svg" alt="" />
+          </div>
+
+          <div class="rightContainer">
+            <img src="./images/2.svg" alt="" />
+            <div class="twoCutRight">
+              <div class="rightNew">
+                <i class="bi bi-2-circle"></i>
+                <h4>客製的互動</h4>
+              </div>
+              <div class="rightText">
+                <h6>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Natus eligendi ipsam sint, et nulla numquam quaerat voluptatem
+                  nemo deleniti beatae ipsa nesciunt facilis sequi nostrum quis
+                  reiciendis quod unde magni.
+                </h6>
+              </div>
+            </div>
+          </div>
+          <div class="leftContainer">
+            <div class="twoCutLeft">
+              <div class="leftNew">
+                <i class="bi bi-3-circle"></i>
+                <h4>整合的服務</h4>
+              </div>
+              <div class="leftText">
+                <h6>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Eveniet sequi maiores vitae autem atque placeat praesentium,
+                  aliquid amet veniam, voluptatem architecto et libero laborum
+                  modi, unde laudantium porro ipsum esse.
+                </h6>
+              </div>
+            </div>
+            <img src="./images/3.svg" alt="" />
+          </div>
+        </div>
+      </div>
+
+      <div class="threecut" id="section2">
+        <div class="cutpic">
+          <img src="./images/PetpaGo-whiteLogo.svg" alt="" />
+        </div>
+
+        <div class="swiperbg">
+          <div class="slide-container swiper">
+            <div class="slide-content">
+              <div class="card-wrapper swiper-wrapper">
+                <div class="card swiper-slide">
+                  <div class="image-content">
+                    <div class="card-image">
+                      <img
+                        src="images/member-bigpost01.jpg"
+                        alt=""
+                        class="card-img"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="card-content">
+                    <div class="message">
+                      <span class="messageLine"></span>
+                      <h2 class="name">BMW官網</h2>
+                    </div>
+                    <p class="description">$30 外送服務費</p>
+                  </div>
+                </div>
+                <div class="card swiper-slide">
+                  <div class="image-content">
+                    <div class="card-image">
+                      <img
+                        src="images/member-bigpost01.jpg"
+                        alt=""
+                        class="card-img"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="card-content">
+                    <div class="message">
+                      <span class="messageLine"></span>
+                      <h2 class="name">BMW官網</h2>
+                    </div>
+                    <p class="description">$30 外送服務費</p>
+                  </div>
+                </div>
+                <div class="card swiper-slide">
+                  <div class="image-content">
+                    <div class="card-image">
+                      <img
+                        src="images/member-bigpost01.jpg"
+                        alt=""
+                        class="card-img"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="card-content">
+                    <div class="message">
+                      <span class="messageLine"></span>
+                      <h2 class="name">BMW官網</h2>
+                    </div>
+                    <p class="description">$30 外送服務費</p>
+                  </div>
+                </div>
+                <div class="card swiper-slide">
+                  <div class="image-content">
+                    <div class="card-image">
+                      <img
+                        src="images/member-bigpost01.jpg"
+                        alt=""
+                        class="card-img"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="card-content">
+                    <div class="message">
+                      <span class="messageLine"></span>
+                      <h2 class="name">BMW官網</h2>
+                    </div>
+                    <p class="description">$30 外送服務費</p>
+                  </div>
+                </div>
+                <div class="card swiper-slide">
+                  <div class="image-content">
+                    <div class="card-image">
+                      <img
+                        src="images/member-bigpost01.jpg"
+                        alt=""
+                        class="card-img"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="card-content">
+                    <div class="message">
+                      <span class="messageLine"></span>
+                      <h2 class="name">BMW官網</h2>
+                    </div>
+                    <p class="description">$30 外送服務費</p>
+                  </div>
+                </div>
+                <div class="card swiper-slide">
+                  <div class="image-content">
+                    <div class="card-image">
+                      <img
+                        src="images/member-bigpost01.jpg"
+                        alt=""
+                        class="card-img"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="card-content">
+                    <div class="message">
+                      <span class="messageLine"></span>
+                      <h2 class="name">BMW官網</h2>
+                    </div>
+                    <p class="description">$30 外送服務費</p>
+                  </div>
+                </div>
+                <div class="card swiper-slide">
+                  <div class="image-content">
+                    <div class="card-image">
+                      <img
+                        src="images/member-bigpost01.jpg"
+                        alt=""
+                        class="card-img"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="card-content">
+                    <div class="message">
+                      <span class="messageLine"></span>
+                      <h2 class="name">BMW官網</h2>
+                    </div>
+                    <p class="description">$30 外送服務費</p>
+                  </div>
+                </div>
+                <div class="card swiper-slide">
+                  <div class="image-content">
+                    <div class="card-image">
+                      <img
+                        src="images/member-bigpost01.jpg"
+                        alt=""
+                        class="card-img"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="card-content">
+                    <div class="message">
+                      <span class="messageLine"></span>
+                      <h2 class="name">BMW官網</h2>
+                    </div>
+                    <p class="description">$30 外送服務費</p>
+                  </div>
+                </div>
+                <div class="card swiper-slide">
+                  <div class="image-content">
+                    <div class="card-image">
+                      <img
+                        src="images/member-bigpost01.jpg"
+                        alt=""
+                        class="card-img"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="card-content">
+                    <div class="message">
+                      <span class="messageLine"></span>
+                      <h2 class="name">BMW官網</h2>
+                    </div>
+                    <p class="description">$30 外送服務費</p>
+                  </div>
+                </div>
+                <div class="card swiper-slide">
+                  <div class="image-content">
+                    <div class="card-image">
+                      <img
+                        src="images/member-bigpost01.jpg"
+                        alt=""
+                        class="card-img"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="card-content">
+                    <div class="message">
+                      <span class="messageLine"></span>
+                      <h2 class="name">BMW官網</h2>
+                    </div>
+                    <p class="description">$30 外送服務費</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-button-next swiper-navBtn"></div>
+            <div class="swiper-button-prev swiper-navBtn"></div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+
+        <!-- List -->
+        <div class="ListContainer">
+          <div class="ListBox">
+            <img src="./images/member-bigpost01.jpg" alt="" />
+            <div class="ListText">
+              <div class="Listmessage">
+                <span class="ListmessageLine"></span>
+                <p class="ListcardTexts">BMW官網</p>
+              </div>
+              <p class="ListcardTexts">$30 外送服務費</p>
+            </div>
+          </div>
+          <div class="ListBox">
+            <img src="./images/member-bigpost01.jpg" alt="" />
+            <div class="ListText">
+              <div class="Listmessage">
+                <span class="ListmessageLine"></span>
+                <p class="ListcardTexts">BMW官網</p>
+              </div>
+              <p class="ListcardTexts">$30 外送服務費</p>
+            </div>
+          </div>
+          <div class="ListBox">
+            <img src="./images/member-bigpost01.jpg" alt="" />
+            <div class="ListText">
+              <div class="Listmessage">
+                <span class="ListmessageLine"></span>
+                <p class="ListcardTexts">BMW官網</p>
+              </div>
+              <p class="ListcardTexts">$30 外送服務費</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="threecutBtn">
+        <div class="button"><p>看看更多</p></div>
+      </div>
+
+      <div class="container">
+        <div class="fourcut" id="section3">
+          <div class="cutpic">
+            <img src="./images/PetpaGo-whiteLogo.svg" alt="" />
+          </div>
+
+          <div class="cards">
+            <div class="fourCutcard">
+              <div class="topSection">
+                <span class="line"></span>
+                <h4>專案PM</h4>
+              </div>
+              <div class="downSection">
+                <div class="downSectionPic">
+                  <i class="bi bi-person"></i>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam
+                  odit ipsam similique nisi aliquid voluptatem debitis quasi
+                  minus neque iste.
+                </p>
+              </div>
+            </div>
+            <div class="fourCutcard">
+              <div class="topSection">
+                <span class="line"></span>
+                <h4>創意前端</h4>
+              </div>
+              <div class="downSection">
+                <div class="downSectionPic">
+                  <i class="bi bi-terminal"></i>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam
+                  odit ipsam similique nisi aliquid voluptatem debitis quasi
+                  minus neque iste.
+                </p>
+              </div>
+            </div>
+            <div class="fourCutcard">
+              <div class="topSection">
+                <span class="line"></span>
+                <h4>硬底子後端</h4>
+              </div>
+              <div class="downSection">
+                <div class="downSectionPic">
+                  <i class="bi bi-database"></i>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam
+                  odit ipsam similique nisi aliquid voluptatem debitis quasi
+                  minus neque iste.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <section class="contact" id="section4">
+          <section class="left">
+            <div class="logoText">
+              <h1>CONTACT</h1>
+              <h5>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere
+                accusantium, sint optio veritatis numquam doloremque.
+              </h5>
+            </div>
+            <div class="phoneText">
+              <div class="phoneTop">
+                <i class="bi bi-telephone-fill"></i>
+                <h4>+886-2-2731-1766</h4>
+              </div>
+              <div class="phoneLine"></div>
+              <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h5>
+            </div>
+
+            <div class="ContactLine"></div>
+
+            <img src="./images/PetpaGo-logo.svg" alt="" />
+          </section>
+          <section class="right">
+            <div class="form">
+              <form>
+                <div class="group">
+                  <input type="text" required="required" />
+                  <span class="bar"></span><label>姓名</label>
+                </div>
+                <div class="group">
+                  <input type="text" required="required" />
+                  <span class="bar"></span><label>EMAIL</label>
+                </div>
+                <div class="group">
+                  <input type="tel" required="required" />
+                  <span class="bar"></span><label>電話</label>
+                </div>
+                <div class="group">
+                  <textarea
+                    type="textarea"
+                    rows="5"
+                    required="required"
+                  ></textarea
+                  ><span class="bar"></span><label>需求說明</label>
+                </div>
+
+                <button><p>確認送出</p></button>
+              </form>
+            </div>
+          </section>
+        </section>
+        <section class="Last">
+          <h3>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam,
+            earum.
+          </h3>
+          <!-- progress -->
+          <div id="progress">
+            <span id="progress-value"><i class="bi bi-arrow-up"></i></span>
+          </div>
+        </section>
+      </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="./main.js"></script>
+  </body>
 </html>
