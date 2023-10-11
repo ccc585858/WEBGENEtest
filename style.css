@@ -551,7 +551,7 @@ body .wrapper .threecutBtn .button p {
 }
 body .wrapper .contact {
   display: flex;
-  padding-top: 165px;
+  padding-top: 25%;
 }
 body .wrapper .contact .left {
   background-color: #fff;
